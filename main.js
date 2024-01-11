@@ -8,7 +8,6 @@ window.onload = function () {
     .then((response) => response.json())
     .then((blocks) => {
       const result = packBlocks(container, blocks);
-
       containerElement.style.width = container.width + "px";
       containerElement.style.height = container.height + "px";
 
