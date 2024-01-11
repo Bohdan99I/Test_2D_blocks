@@ -1,0 +1,14 @@
+.container {
+  border: 1px solid black;
+  position: relative;
+}
+
+.block {
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  border: 2px solid white;
+}
