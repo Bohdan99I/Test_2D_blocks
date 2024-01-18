@@ -94,11 +94,13 @@ function stackBlocks(blocks, container) {
           bottom: block.coordinates.bottom,
         },
       ];
+
       container.internalCavities.splice(spaceIndex, 1, ...newFreeSpaces);
     }
   }
 
   addColor(blocks);
+
   return calcMetrics(blocks, container);
 }
 
@@ -135,8 +137,10 @@ async function loadBlocksData() {
 
 function updateUI(result, containerInfo) {
   const containerDiv = document.getElementById("container");
+
   containerDiv.style.width = containerInfo.width + "px";
   containerDiv.style.height = containerInfo.height + "px";
+
   const fullness = document.getElementById("fullness-value");
   fullness.textContent = result.fullness.toFixed(2);
 
