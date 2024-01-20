@@ -47,7 +47,6 @@ function calcMetrics(blocks, container) {
   return { fullness, blockCoordinates };
 }
 
-
 function stackBlocks(blocks, container) {
   blocks.sort((a, b) => b.width * b.height - a.width * a.height);
 
@@ -69,7 +68,6 @@ function stackBlocks(blocks, container) {
       };
 
       block.isPlaced = true;
-
       const newInternalCavities = [
         {
           top: space.top,
@@ -98,10 +96,10 @@ function stackBlocks(blocks, container) {
       ];
 
       container.internalCavities.splice(spaceIndex, 1, ...newInternalCavities);
-    } else {      
+    } else {
       console.error(
         `Cannot place block with width ${block.width} and height ${block.height}.`
-      );      
+      );
     }
   }
 
@@ -109,7 +107,6 @@ function stackBlocks(blocks, container) {
 
   return calcMetrics(blocks, container);
 }
-
 
 function getRandomColor() {
   const letters = "0123456789ABCDEF";
