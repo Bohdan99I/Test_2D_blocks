@@ -114,17 +114,15 @@ function getRandomColor() {
 }
 
 function addColor(blocks) {
-  const uniqueBlockSizes = new Map();
+  const uniqueBlockSizes = {};
 
   for (const block of blocks) {
     const { width, height } = block;
 
     if (block.color === null) {
-      block.color = uniqueBlockSizes.has(`${width}-${height}`)
-        ? uniqueBlockSizes.get(`${width}-${height}`)
-        : getRandomColor();
+      block.color = uniqueBlockSizes[`${width}-${height}`] || getRandomColor();
 
-      uniqueBlockSizes.set(`${width}-${height}`, block.color);
+      uniqueBlockSizes[`${width}-${height}`] = block.color;
     }
   }
 }
