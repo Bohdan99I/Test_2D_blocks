@@ -24,13 +24,14 @@ function calcMetrics(blocks, container) {
     0
   );
 
-  const freeSpacesArea = container.internalCavities.reduce(
+  const internalCavitiesArea = container.internalCavities.reduce(
     (total, space) =>
       total + (space.right - space.left) * (space.bottom - space.top),
     0
   );
 
-  const fullness = 1 - freeSpacesArea / (freeSpacesArea + totalBlockArea);
+  const fullness =
+    1 - internalCavitiesArea / (internalCavitiesArea + totalBlockArea);
 
   const blockCoordinates = blocks
     .filter((block) => block.isPlaced)
@@ -45,6 +46,7 @@ function calcMetrics(blocks, container) {
 
   return { fullness, blockCoordinates };
 }
+
 
 function stackBlocks(blocks, container) {
   blocks.sort((a, b) => b.width * b.height - a.width * a.height);
