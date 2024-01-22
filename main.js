@@ -119,7 +119,6 @@ function getRandomColor() {
 
 function addColor(blocks) {
   const uniqueBlockSizes = {};
-
   for (const block of blocks) {
     const { width, height } = block;
 
@@ -134,15 +133,14 @@ function addColor(blocks) {
 async function loadBlocksData() {
   const response = await fetch("blocks.json");
   const blocksInfo = await response.json();
+
   return blocksInfo;
 }
 
 function updateUI(result, containerInfo) {
   const containerDiv = document.getElementById("container");
-
   containerDiv.style.width = containerInfo.width + "px";
   containerDiv.style.height = containerInfo.height + "px";
-
   const fullness = document.getElementById("fullness-value");
   fullness.textContent = result.fullness.toFixed(2);
 
