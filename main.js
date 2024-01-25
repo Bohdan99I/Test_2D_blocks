@@ -49,7 +49,6 @@ function calcMetrics(blocks, container) {
 
 function stackBlocks(blocks, container) {
   blocks.sort((a, b) => b.width * b.height - a.width * a.height);
-
   for (const block of blocks) {
     const spaceIndex = container.internalCavities.findIndex(
       (space) =>
@@ -104,7 +103,6 @@ function stackBlocks(blocks, container) {
   }
 
   addColor(blocks);
-
   return calcMetrics(blocks, container);
 }
 
@@ -121,7 +119,6 @@ function addColor(blocks) {
   const uniqueBlockSizes = {};
   for (const block of blocks) {
     const { width, height } = block;
-
     if (block.color === null) {
       block.color = uniqueBlockSizes[`${width}-${height}`] || getRandomColor();
 
@@ -133,7 +130,6 @@ function addColor(blocks) {
 async function loadBlocksData() {
   const response = await fetch("blocks.json");
   const blocksInfo = await response.json();
-
   return blocksInfo;
 }
 
